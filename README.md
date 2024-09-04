@@ -6,11 +6,11 @@ Copyright (c) 2020 Miðeind ehf
 
 ## Disclaimer
 
-This repository contains code to serve models trained with the [GreynirT2T](https://github.com/mideind/GreynirT2T) pipeline for NMT, it is no loner maintained since its core Tensor2Tensor has been de facto abandoned. See the repoository [GreynirSeq](https://github.com/mideind/GreynirSeq) for future development on NMT for Icelandic.
+This repository contains code to serve models trained with the [GreynirT2T](https://github.com/mideind/GreynirT2T) pipeline for NMT. It is no longer maintained, since its core Tensor2Tensor has been de facto abandoned. See the repoository [GreynirSeq](https://github.com/mideind/GreynirSeq) for future development on NMT for Icelandic.
 
 ## Models
 
-For serving with docker, store models under `conf/models/`. The baseline models available on [CLARIN](https://repository.clarin.is/repository/xmlui/) are trained on a cleaned up and filtered variation of ParIce along with backtranslation data. One model for each direction English--Icelandic and Icelandic--English.
+For serving with Docker, store models under `conf/models/`. The baseline models available on [CLARIN](https://repository.clarin.is/repository/xmlui/) are trained on a cleaned up and filtered variation of ParIce along with backtranslation data. There is a model for each direction, English--Icelandic and Icelandic--English.
 
 ## Serve models over http
 
@@ -22,7 +22,7 @@ Having installed docker and docker-compose, run
 docker-compose up
 ```
 
-and you will be able to query a translation server for translations from Icelandic to English and vice versa using e.g. curl in the following manner:
+and you will be able to query a translation server for translations from Icelandic to English and vice versa using e.g. `curl` in the following manner:
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"model": "transformer-bt", "target": "en", "source": "is", "pgs": ["Hvað er klukkan?"]}' localhost:5005/translate.api
